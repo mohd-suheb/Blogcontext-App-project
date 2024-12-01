@@ -1,23 +1,25 @@
-import Header from "./components/Header";
-import Blogs from "./components/Blogs";
-import Pagination from "./components/Pagination";
-import { useContext, useEffect } from "react";
-import { AppContext } from "./context/AppContext";
-import "./App.css"
+import React, { useContext } from 'react'
+import Header from './component/Header'
+import Blogs from './component/Blogs'
+import Footer from './component/Footer'
+import './App.css'
+import { Appcontext } from './context/Appcontext'
+import { useEffect } from 'react'
 
-export default function App() {
-  const {fetchBlogPosts} = useContext(AppContext);
-
-  useEffect(() => {
-    fetchBlogPosts();
-  },[]);
-
+const App = () => {
+  const{fetchblogs} = useContext(Appcontext);
+  useEffect(()=>{
+    fetchblogs();
+},[]);
   return (
-    <div className="w-full h-full flex flex-col gap-y-1 justify-center items-center">
-      <Header />
-      <Blogs />
-      <Pagination />
-    </div>
-  );
+    <div className='w-full h-full flex flex-col items-center justify-center'>
 
+      <Header/>
+      <Blogs/>
+      <Footer/>
+    </div>
+  )
 }
+
+export default App
+

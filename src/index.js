@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import AppContextProvider from "./context/AppContext"
+import Appcontextprovider from "./context/Appcontext"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AppContextProvider>
+  <Appcontextprovider >
     <App />
-  </AppContextProvider>
-    
-  
+  </Appcontextprovider >
 );

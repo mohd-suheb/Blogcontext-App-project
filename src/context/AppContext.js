@@ -14,11 +14,18 @@ export default function Appcontextprovider({children}){
     const[totalPages, settotalpage] = useState(null );
   
     //data felling
-    async function fetchblogs(page) {
+    async function fetchblogs(page = 1, tag=null, category) {
         setloadig(true);
 
-        let url = `${baseUrl}?page=${page}`;
+        let url = `${baseUrl}get-blogs?page=${page}`;
+        if(tag){
+            ulr+=`&tag = ${tag}`;
+        }
+        
+        if(category){
 
+            url+= `&category =${category}`;
+        }
         try {
          const res = await fetch(url);
          const data =  await res.json();
